@@ -1,25 +1,6 @@
-// Lesson 06.02 - PROG
-// Chinese Zodiac Animals, Part 2
 
-// 9. Open **06.01-Creating-Elements-START.js** and get the **section** that serves as the parent wrapper of the interface:
 const section = document.querySelector('section');
 
-// 10. Make a div with **createElement()**:
-// const divvy = document.createElement('div');
-
-// 11. Apply the existing **.divvy** class to the div and Give the div some text content, as a test:
-// divvy.className = 'divvy';
-// divvy.textContent = 'dynamic div';
-
-// 12. Use **appendChild()** to output the div inside the section:
-// section.appendChild(divvy);
-
-// 13. Reload the page. In the upper left corner of the section there should be one smallish box that says *dynamic div*.
-
-// making the set of 12 Chinese Zodiac Animals
-// Now that we have that working, let's use a loop to make all 12 divs.
-
-// 14. Wrap the code that made the div in a for loop that runs 12 times. For text output, number the divs with the counter, **i**:
 
 for(let i = 0; i < animals.length; i++) {
     const divvy = document.createElement('div');
