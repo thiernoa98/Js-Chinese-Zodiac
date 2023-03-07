@@ -1,64 +1,41 @@
 
 const section = document.querySelector('section');
 
-
 for(let i = 0; i < animals.length; i++) {
     const divvy = document.createElement('div');
     divvy.className = 'divvy';
-    // divvy.textContent = 'div ' + i;
     section.appendChild(divvy);
 
-    // 15. Reload the page. All 12 divs should appear, in two rows of six. The divvy class has *display: inline-block* to arrange the divs side-by-side.
-
-    // 23. We will be using the **animals** array a lot, so to simplify property access, save the current animal **animals[i]** to a variable, **animal**. Update the concatenation to use the more streamlined **animal.eng**:
     let animal = animals[i];
 
-    // 16. Still in the loop, make an image for each div, using*new Image():
     let pic = new Image();
 
-    // 17. Set the source of the image to **cow.jpg**. The result will be 12 cows: 
-    // pic.src = 'images/animals/cow.jpg';
-
-    // 21. Change the source to be dynamic, so that we get all 12 animals--not just the cow. Concatenate the **eng** property into the file path. The current animal is available as **animals[i]** and its English name is **animals[i].eng**:
-    // 22. Reload the page. We should have 12 divs, each with a different animal.
     pic.src = `images/animals/${animal.eng}.jpg`;
 
     // 18. Apply the **.animal-pic** class to the image:
     pic.className = 'animal-pic';
 
-    // 19. Delete the text and output the image inside the div. In terms of nesting, **divvy** goes inside **section** and **pic** goes inside **divvy**:
-    // divvy.textContent = '';
     divvy.appendChild(pic);
 
-    // 24. Still in the loop, make the **input** box:
+    //the **input** box:
     const inputBox = document.createElement('input');
 
-    // 25. Assign the input box a type of **search**. This will give the box a little X to clear it, and it also provides a **search** event, which fires when the user hits Enter: 
     inputBox.type = 'search';
 
-    // 26. Assign the box a **placeholder** to prompt the user to enter the animal name:
+    // a placeholder** to prompt the user to enter the animal name:
     inputBox.placeholder = 'name';
 
-    // 27. Assign **eng**, **chi** and **also** properties to the input box. These will be used by the **checkSpelling** function to see if the user input matches any of the three accepted spellings:
     inputBox.eng = animal.eng;
     inputBox.chi = animal.chi;
     inputBox.also = animal.also;
 
-    // 28. Also save the current index as a property of the input box. This will come in handy down the road (next lesson):
     inputBox.index = i;
 
-    // 29. Have the input box call the function when its search event is fired:
     inputBox.addEventListener('search', checkSpelling);
-
-    // 30. Also the input box call the function on **blur**, and event which fires when the user hits **Tab** to leave an input box. Tab moves the cursor to the next input box, so it's a handy way to navigate from one animal div to the next:
-    inputBox.addEventListener('blur', checkSpelling);
-
-    // 31. Output the input box to the div. It will appear under the animal image:
     divvy.appendChild(inputBox);
 
     //make the image hold the chinese character
     let chineseChar = new Image();
-    //getting the image
     chineseChar.src = `images/chars/char-${animal.chi}.jpg`; 
     chineseChar.className = 'chinese-char'; //css
     divvy.appendChild(chineseChar);
@@ -69,7 +46,7 @@ for(let i = 0; i < animals.length; i++) {
     divvy.appendChild(pTag);
 
     //chinese zodiac years: 12 in between each year
-    let yearSeries = (animal.year - 144) + ' '; //12 * 12 num of years 144
+    let yearSeries = (animal.year - 157) + ' '; //12 * 12 num of years 144
     //12 * 12 == 144
     //here y-= == 144 - 12 ...
     for (let y = 144; y >= -12; y-=12) {
